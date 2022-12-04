@@ -1,22 +1,19 @@
-import React from "react";
+import React, {useState} from "react";
 
 
-type AccordionType = {
+type UncontrolledAccordionType = {
     title: string,
-    collapsed: boolean,
-    onChange: () => void
+    // collapsed: boolean
 }
 
 type AccordionTitleType = {
     title: string,
-    setAccordionCollapsed: () => void
+    onclickHandler: () => void
 }
 
 function AccordionTitle(props: AccordionTitleType) {
     return (
-        <h2 onClick={() => {
-            props.setAccordionCollapsed()
-        }}>{props.title}</h2>
+        <h2 onClick={props.onclickHandler}>{props.title}</h2>
     )
 }
 
@@ -33,12 +30,19 @@ const AccordionBody = function () {
     )
 }
 
-export const Accordion = (props: AccordionType) => {
+
+export const UncontrolledAccordion = (props: UncontrolledAccordionType) => {
+
+    const [collapsed, setCollapsed] = useState(true)
+
+    const onclickHandler = () => {
+        setCollapsed(!collapsed)
+    }
+
     return (
         <div>
-            <AccordionTitle title={props.title} setAccordionCollapsed={props.onChange}
-            />
-            {!props.collapsed && <AccordionBody/>}
+            <AccordionTitle title={props.title} onclickHandler={onclickHandler}/>
+            {!collapsed && <AccordionBody/>}
         </div>
     )
     //

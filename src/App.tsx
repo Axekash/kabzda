@@ -1,14 +1,22 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
-import Accordion from './components/Accordion/Accordion'
-import {Raiting} from "./components/Raiting/Raiting";
+// import {UncontrolledAccordion} from "./components/UncontrolledAccordion/UncontrolledAccordion";
+import {Raiting, RaitingValueType} from "./components/Raiting/Raiting";
+import {Accordion} from "./components/Accordion/Accordion";
+import {OnOff} from "./components/OnOff/OnOff";
+import {UncontrolledAccordion} from "./components/UncontrolledAccordion/UncontrolledAccordion";
+import {UncontrolledRaiting} from "./components/UncontrolledRaiting/UncontrolledRaiting";
+import {UncontrolledOnOff} from "./components/UncontrolledOnOff/UncontrolledOnOff";
 
-/*function sum(a: number, b: number) {
-    alert(a + b);
+type PageTitleString = {
+    title: string
 }
-
-sum(23, 12);
-sum(122, 500);*/
+const PageTitle = (props: PageTitleString) => {
+    console.log('PageTitle rendering')
+    return (
+        <h1>{props.title}</h1>
+    )
+}
 
 function App() { //функция, объявленная с большой буквы и возвращающая
     // html разметку в формате jsx называется КОМПОНЕНТА!
@@ -17,36 +25,37 @@ function App() { //функция, объявленная с большой бу
     // полезное выполнение функции
 
     // обязана вернуть JSX
-    console.log('APP rendering')
+    console.log('App rendering')
+
+    let [raitingValue, setRaitingValue] = useState<RaitingValueType>(4)
+    let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false)
+    let [on, setOn] = useState(false) // hook with init value
+
     return (
-        <div>
-            <PageTitle title={'This is APP component'}/>
-            <PageTitle title={'My best friends'}/>
+        <div className={'App'}>
+            <PageTitle title='This is APP Component'/>
             Article 1
-            <Raiting value={3}/>
-            <Accordion titleValue={'My Menu noww'} collapsed={true}/>
-            <Accordion titleValue={'My new menu'} collapsed={false}/>
-            Article 2
-            <Raiting value={0}/>
-            <Raiting value={1}/>
-            <Raiting value={2}/>
-            <Raiting value={3}/>
-            <Raiting value={4}/>
-            <Raiting value={5}/>
+            {/*<Raiting value={0}/>*/}
+            {/*<Raiting value={1}/>*/}
+            {/*<Raiting value={2}/>*/}
+            {/*<Raiting value={3}/>*/}
+            {/*<Raiting value={4}/>*/}
+            {/*<Raiting value={5}/>*/}
+
+
+            <UncontrolledRaiting/>
+            <Raiting value={raitingValue} onClick={setRaitingValue}/>
+
+            {/*<Accordion title='UncontrolledAccordion Title' collapsed={true}/>*/}
+            <Accordion title='Accordion Title' collapsed={accordionCollapsed} onChange={   ()=>{setAccordionCollapsed(!accordionCollapsed)}} />
+            <UncontrolledAccordion title='UncontrolledAccordion Title'/>
+            {/*<UncontrolledAccordion title='UncontrolledAccordion Title' />*/}
+            <UncontrolledOnOff/>
+            <OnOff isTrue={on} setOn={setOn}/>
+
         </div>
     );
 }
 
-type PageTytlePropsType = {
-    title: string;
-}
-
-
-function PageTitle(props: PageTytlePropsType) {
-    console.log('PageTitle rendering')
-    return (
-        <h1> {props.title} </h1>
-    )
-}
 
 export default App;
