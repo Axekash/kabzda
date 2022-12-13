@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import s from './UncontrolledOnOff.module.css'
 
 type UncontrolledOnOffType = {
-    // isTrue: boolean
+    defaultOn?: boolean
 }
 // export const UncontrolledOnOff = (props: OnOffType) => {
 //
@@ -32,7 +32,7 @@ type UncontrolledOnOffType = {
 export const UncontrolledOnOff = (props: UncontrolledOnOffType) => {
 
     console.log('UncontrolledOnOff Rendering')
-    let [on, setOn] = useState(false) // hook with init value
+    let [on, setOn] = useState(props.defaultOn ? props.defaultOn : false) // hook with init value
     console.log('on: ' + on)
 
     const onStyle = {

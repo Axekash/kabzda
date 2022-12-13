@@ -17,12 +17,14 @@ const Star = (props: StarPropsType) => {
 }
 
 type RaitingPropsType = {
-    //value: 0 | 1 | 2 | 3 | 4 | 5;
+    defaultValue: 0 | 1 | 2 | 3 | 4 | 5,
+    onChange: (value: 0 | 1 | 2 | 3 | 4 | 5) => void
+
 }
 
 export function UncontrolledRaiting(props: RaitingPropsType) {
 
-    const [onClick, setOnClick] = useState<number>(0)
+    const [onClick, setOnClick] = useState<0 | 1 | 2 | 3 | 4 | 5>(props.defaultValue ? props.defaultValue : 0)
 
     // const onClickHandler = (val: 1 | 2 | 3 | 4 | 5) => {
     //     setOnClick(val)
@@ -34,11 +36,11 @@ export function UncontrolledRaiting(props: RaitingPropsType) {
             {/*<Star selected={onClick > 2} setOnClick={setOnClick} value={3}/>*/}
             {/*<Star selected={onClick > 3} setOnClick={setOnClick} value={4}/>*/}
             {/*<Star selected={onClick > 4} setOnClick={setOnClick} value={5}/>*/}
-            <Star selected={onClick > 0} setOnClick={() => {setOnClick(1)}}/>
-            <Star selected={onClick > 1} setOnClick={() => {setOnClick(2)}} />
-            <Star selected={onClick > 2} setOnClick={() => {setOnClick(3)}} />
-            <Star selected={onClick > 3} setOnClick={() => {setOnClick(4)}} />
-            <Star selected={onClick > 4} setOnClick={() => {setOnClick(5)}} />
+            <Star selected={onClick > 0} setOnClick={() => {setOnClick(1); props.onChange(1)}}/>
+            <Star selected={onClick > 1} setOnClick={() => {setOnClick(2); props.onChange(2)}} />
+            <Star selected={onClick > 2} setOnClick={() => {setOnClick(3); props.onChange(3)}} />
+            <Star selected={onClick > 3} setOnClick={() => {setOnClick(4); props.onChange(4)}} />
+            <Star selected={onClick > 4} setOnClick={() => {setOnClick(5); props.onChange(5)}} />
         </div>
     )
     //

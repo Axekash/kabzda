@@ -3,6 +3,7 @@ import React from "react";
 type StarPropsType = {
     selected: boolean,
     onClick: (value: RaitingValueType) => void,
+
     value: RaitingValueType
 }
 
@@ -19,8 +20,16 @@ export type RaitingValueType = 0 | 1 | 2 | 3 | 4 | 5;
 
 
 type RaitingPropsType = {
+    /**
+     * this value to get useState
+     */
     value: RaitingValueType,
+    /**
+     * that callback is called when any item will clicked
+     * @param value must be 1-5
+     */
     onClick: (value: RaitingValueType) => void
+
 }
 
 export function Raiting(props: RaitingPropsType) {

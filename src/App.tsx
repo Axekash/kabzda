@@ -43,7 +43,7 @@ function App() { //функция, объявленная с большой бу
             {/*<Raiting value={5}/>*/}
 
 
-            <UncontrolledRaiting/>
+            <UncontrolledRaiting defaultValue={1} onChange={a=>a} />
             <Raiting value={raitingValue} onClick={setRaitingValue}/>
 
             {/*<Accordion title='UncontrolledAccordion Title' collapsed={true}/>*/}

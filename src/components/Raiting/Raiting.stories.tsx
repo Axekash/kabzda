@@ -6,7 +6,7 @@ import {Raiting, RaitingValueType} from './Raiting';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-    title: 'Raiting stories',
+    title: 'Components demo/Raiting',
     component: Raiting,
     // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
     argTypes: {
