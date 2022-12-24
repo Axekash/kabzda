@@ -51,13 +51,22 @@ export const ChangedAccordionMode = Template1.bind({});
 UncollapsedMode.args = {
     title: 'Menu',
     collapsed: false,
-    onChange: action('accordion mode change event fired')
+    onChange: action('accordion mode change event fired'),
+    items: [
+        {title: 'Alex', value: 1},
+        {title: 'Karina', value: 2},
+        {title: 'Dimych', value: 3}
+    ],
+    onClick: action('some item was clicked')
 };
 CollapsedMode.args = {
     title: 'Menu',
     collapsed: true,
-    onChange: action('accordion mode change event fired')
+    onChange: action('accordion mode change event fired'),
+    onClick:  (value) => {alert(`User with id ${value} was clicked`)}
 };
 ChangedAccordionMode.args = {
     title: 'Menu',
+    items: [{title: 'Alex', value: 1}, {title: 'Karina', value: 2}, {title: 'Dimych', value: 3}],
+    onClick: (id) => {alert('users with id ' + id + ' was clicked')}
 }

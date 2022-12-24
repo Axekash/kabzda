@@ -22,11 +22,9 @@ type Props = {
 
 export const UncontrollsInput = (props: Props) => {
     const [newValue, setNewValue] = useState('')
-    debugger
     const inputRef = useRef<HTMLInputElement>(null)
 
     const save = () => {
-        debugger
         const element = inputRef.current as HTMLInputElement;
         setNewValue(element.value)
     }

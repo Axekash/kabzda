@@ -25,6 +25,9 @@ function App() { //функция, объявленная с большой бу
     // полезное выполнение функции
 
     // обязана вернуть JSX
+
+    let itemsValue = [{title: 'Alex', value: 1}, {title: 'Karina', value: 2}, {title: 'Dimych', value: 3}]
+
     console.log('App rendering')
 
     let [raitingValue, setRaitingValue] = useState<RaitingValueType>(4)
@@ -47,7 +50,15 @@ function App() { //функция, объявленная с большой бу
             <Raiting value={raitingValue} onClick={setRaitingValue}/>
 
             {/*<Accordion title='UncontrolledAccordion Title' collapsed={true}/>*/}
-            <Accordion title='Accordion Title' collapsed={accordionCollapsed} onChange={   ()=>{setAccordionCollapsed(!accordionCollapsed)}} />
+
+            <Accordion
+                title='Accordion Title'
+                collapsed={accordionCollapsed}
+                onChange={()=>{setAccordionCollapsed(!accordionCollapsed)}} items={itemsValue}
+                onClick={()=> {}}
+
+            />
+
             <UncontrolledAccordion title='UncontrolledAccordion Title'/>
             {/*<UncontrolledAccordion title='UncontrolledAccordion Title' />*/}
             <UncontrolledOnOff/>

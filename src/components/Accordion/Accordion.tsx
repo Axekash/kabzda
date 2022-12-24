@@ -1,11 +1,20 @@
 import React from "react";
+import {action} from "@storybook/addon-actions";
 
+
+type ItemsType = {
+    title: string
+    value: any
+}
 
 type AccordionType = {
     title: string,
     collapsed: boolean,
     onChange: () => void
+    onClick: (value: any) => void
     color?: string
+    items: Array<ItemsType>
+
 }
 
 type AccordionTitleType = {
@@ -25,15 +34,19 @@ function AccordionTitle(props: AccordionTitleType) {
     )
 }
 
-const AccordionBody = function () {
-    console.log('AccordionBody rendering')
+type AccordionBodyType = {
+    items: ItemsType[]
+    onClick: (value: any) => void
+}
+const AccordionBody = function (props: AccordionBodyType) {
+
     return (
         <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>4</li>
-            <li>5</li>
+            {props.items.map((item, index) => {return <li
+                onClick={() => {props.onClick(item.value)}}
+                key={index}
+            > {item.title}
+            </li>} )}
         </ul>
     )
 }
@@ -41,26 +54,19 @@ const AccordionBody = function () {
 export const Accordion = (props: AccordionType) => {
     return (
         <div>
-            <AccordionTitle title={props.title} color={props.color} setAccordionCollapsed={props.onChange}
+            <AccordionTitle
+                title={props.title}
+                color={props.color}
+                setAccordionCollapsed={props.onChange}
             />
-            {!props.collapsed && <AccordionBody/>}
+            {!props.collapsed &&
+                <AccordionBody
+                    items={props.items}
+                    onClick={props.onClick}
+                />
+            }
         </div>
     )
-    //
-    // if (props.collapsed) {
-    //     return (
-    //         <div>
-    //             <AccordionTitle title={props.title}/>
-    //         </div>
-    //     )
-    // } else {
-    //     return (
-    //         <div>
-    //             <AccordionTitle title={props.title}/>
-    //             <AccordionBody/>
-    //         </div>
-    //     )
-    // }
 }
 
 

@@ -1,0 +1,28 @@
+.select {
+    background-color: rgba(30, 167, 253, 0.5);
+    width: 20%;
+    border: 2px solid black;
+}
+.select:hover {
+    border: 2px solid orange;
+    cursor: pointer;
+}
+.items.active {
+    display: block
+}
+
+.items {
+    display: none;
+}
+
+.item {
+    margin: 2px;
+    border: 1px solid red
+}
+.selectedItem {
+    background-color: orange;
+}
+.item:hover {
+    background-color: orange;
+}
+
