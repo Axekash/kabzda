@@ -6,7 +6,7 @@ type Props = {
     // value: string
     // onChange: () => void
 };
-export const ControlledInput = (props: Props) => {
+export const ControllingInput = (props: Props) => {
     const [parentValue, setParentValue] = useState('')
 
     return (
@@ -15,3 +15,5 @@ export const ControlledInput = (props: Props) => {
         </>
     );
 };
+
+export const ControlledInput = React.memo(ControllingInput)

@@ -3,7 +3,7 @@ import * as React from 'react';
 type Props = {
 
 };
-export const ControlledSelect = (props: Props) => {
+export const ControlledSelectSecret = (props: Props) => {
     return (
         <>
             <select>
@@ -12,3 +12,5 @@ export const ControlledSelect = (props: Props) => {
         </>
     );
 };
+
+export const ControlledSelect = React.memo(ControlledSelectSecret)

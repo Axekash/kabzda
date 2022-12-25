@@ -26,20 +26,20 @@ type AccordionTitleType = {
     color?: string
 }
 
-function AccordionTitle(props: AccordionTitleType) {
+function AccordionsTitle(props: AccordionTitleType) {
     return (
         <h2 onClick={() => {
             props.setAccordionCollapsed()
         }} style={{color: props.color ? props.color : 'black'}}>{props.title}</h2>
     )
 }
+export const AccordionTitle = React.memo(AccordionsTitle)
 
 type AccordionBodyType = {
     items: ItemsType[]
     onClick: (value: any) => void
 }
-const AccordionBody = function (props: AccordionBodyType) {
-
+const AccordionsBody = function (props: AccordionBodyType) {
     return (
         <ul>
             {props.items.map((item, index) => {return <li
@@ -50,8 +50,9 @@ const AccordionBody = function (props: AccordionBodyType) {
         </ul>
     )
 }
+export const AccordionBody = React.memo(AccordionsBody)
 
-export const Accordion = (props: AccordionType) => {
+export const Accordions = (props: AccordionType) => {
     return (
         <div>
             <AccordionTitle
@@ -68,6 +69,8 @@ export const Accordion = (props: AccordionType) => {
         </div>
     )
 }
+
+export const Accordion = React.memo(Accordions)
 
 
 

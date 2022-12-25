@@ -30,9 +30,7 @@ type OnOffType = {
 // }
 
 
-export const OnOff = (props: OnOffType) => {
-
-    console.log('OnOff Rendering')
+export const OnOffSecret = (props: OnOffType) => {
 
     const onStyle = {
         width: '30px',
@@ -75,3 +73,5 @@ export const OnOff = (props: OnOffType) => {
         </div>
     )
 }
+
+export const OnOff = React.memo(OnOffSecret)

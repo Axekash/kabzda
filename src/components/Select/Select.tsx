@@ -12,7 +12,7 @@ type SelectPropsTypes = {
     items: ItemTypes[]
 };
 
-export const Select = (props: SelectPropsTypes) => {
+export const SelectSecret = (props: SelectPropsTypes) => {
 
     let propsTitle = props.items.find(item => item.value === props.value)
 
@@ -86,5 +86,6 @@ export const Select = (props: SelectPropsTypes) => {
             </div>
         </div>
     );
-
 };
+
+export const Select = React.memo(SelectSecret)

@@ -29,9 +29,8 @@ type UncontrolledOnOffType = {
 // }
 
 
-export const UncontrolledOnOff = (props: UncontrolledOnOffType) => {
+export const UncontrolledOnOffSecret = (props: UncontrolledOnOffType) => {
 
-    console.log('UncontrolledOnOff Rendering')
     let [on, setOn] = useState(props.defaultOn ? props.defaultOn : false) // hook with init value
     console.log('on: ' + on)
 
@@ -76,3 +75,5 @@ export const UncontrolledOnOff = (props: UncontrolledOnOffType) => {
         </div>
     )
 }
+
+export const UncontrolledOnOff = React.memo(UncontrolledOnOffSecret)

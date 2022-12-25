@@ -6,20 +6,20 @@ type UncontrolledAccordionType = {
     title: string,
     // collapsed: boolean
 }
-
 type AccordionTitleType = {
     title: string,
     onclickHandler: () => void
 }
 
-function AccordionTitle(props: AccordionTitleType) {
+function AccordionTitleSecret(props: AccordionTitleType) {
     console.log('Accordion title rendering')
     return (
         <h2 onClick={props.onclickHandler}>{props.title}</h2>
     )
 }
+export const AccordionTitle = React.memo(AccordionTitleSecret)
 
-const AccordionBody = function () {
+const AccordionBodySecret = function () {
     console.log('Accordion body rendering')
     return (
         <ul>
@@ -31,12 +31,9 @@ const AccordionBody = function () {
         </ul>
     )
 }
+export const AccordionBody = React.memo(AccordionBodySecret)
 
-// type ActionType = {
-//     type:
-// }
-
-export const UncontrolledAccordion = (props: UncontrolledAccordionType) => {
+export const UncontrolledAccordionSecret = (props: UncontrolledAccordionType) => {
     console.log('uncontrolled accordion rendering')
     const [state, dispatch] = useReducer(reducer, {collapsed: true})
 
@@ -52,22 +49,8 @@ export const UncontrolledAccordion = (props: UncontrolledAccordionType) => {
             {state.collapsed && <AccordionBody/>}
         </div>
     )
-    //
-    // if (props.collapsed) {
-    //     return (
-    //         <div>
-    //             <AccordionTitle title={props.title}/>
-    //         </div>
-    //     )
-    // } else {
-    //     return (
-    //         <div>
-    //             <AccordionTitle title={props.title}/>
-    //             <AccordionBody/>
-    //         </div>
-    //     )
-    // }
 }
+export const UncontrolledAccordion = React.memo(UncontrolledAccordionSecret)
 
 
 

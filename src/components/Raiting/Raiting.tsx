@@ -7,7 +7,7 @@ type StarPropsType = {
     value: RaitingValueType
 }
 
-const Star = (props: StarPropsType) => {
+const StarSecret = (props: StarPropsType) => {
     return <span onClick={() => {
         props.onClick(props.value)
     }}
@@ -15,6 +15,8 @@ const Star = (props: StarPropsType) => {
         {props.selected ? <b>star </b> : 'star '}
     </span>
 }
+
+export const Star = React.memo(StarSecret)
 
 export type RaitingValueType = 0 | 1 | 2 | 3 | 4 | 5;
 
@@ -32,7 +34,7 @@ type RaitingPropsType = {
 
 }
 
-export function Raiting(props: RaitingPropsType) {
+export function RaitingSecret(props: RaitingPropsType) {
 
     return (
         <div>
@@ -43,65 +45,6 @@ export function Raiting(props: RaitingPropsType) {
             <Star selected={props.value > 4} onClick={props.onClick} value={5}/>
         </div>
     )
-    //
-    // if (props.value === 1) {
-    //     return (
-    //         <div>
-    //             <Star selected={true}/>
-    //             <Star selected={false}/>
-    //             <Star selected={false}/>
-    //             <Star selected={false}/>
-    //             <Star selected={false}/>
-    //         </div>
-    //     )
-    // } else if (props.value === 2) {
-    //     return (
-    //         <div>
-    //             <Star selected={true}/>
-    //             <Star selected={true}/>
-    //             <Star selected={false}/>
-    //             <Star selected={false}/>
-    //             <Star selected={false}/>
-    //         </div>
-    //     )
-    // } else if (props.value === 3) {
-    //     return (
-    //         <div>
-    //             <Star selected={true}/>
-    //             <Star selected={true}/>
-    //             <Star selected={true}/>
-    //             <Star selected={false}/>
-    //             <Star selected={false}/>
-    //         </div>
-    //     )
-    // } else if (props.value === 4) {
-    //     return (
-    //         <div>
-    //             <Star selected={true}/>
-    //             <Star selected={true}/>
-    //             <Star selected={true}/>
-    //             <Star selected={true}/>
-    //             <Star selected={false}/>
-    //         </div>
-    //     )
-    // } else if(props.value === 5) {
-    //     return (
-    //         <div>
-    //             <Star selected={true}/>
-    //             <Star selected={true}/>
-    //             <Star selected={true}/>
-    //             <Star selected={true}/>
-    //             <Star selected={true}/>
-    //         </div>
-    //     )
-    // }  else {
-    //     return (
-    //         <div>
-    //             <Star selected={false}/>
-    //             <Star selected={false}/>
-    //             <Star selected={false}/>
-    //             <Star selected={false}/>
-    //             <Star selected={false}/>
-    //         </div>)
-    // };
 }
+
+export const Raiting = React.memo(RaitingSecret)

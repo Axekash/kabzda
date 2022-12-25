@@ -20,7 +20,7 @@ type Props = {
 
 //Вариант 2: неконтролируемый инпут, получить значение можно через  созданную ссылку ref:
 
-export const UncontrollsInput = (props: Props) => {
+export const UncontrollsInputSecret = (props: Props) => {
     const [newValue, setNewValue] = useState('')
     const inputRef = useRef<HTMLInputElement>(null)
 
@@ -36,3 +36,5 @@ export const UncontrollsInput = (props: Props) => {
         </>
     )
 }
+
+export const UncontrollsInput = React.memo(UncontrollsInputSecret)
