@@ -13,7 +13,7 @@ type SelectPropsTypes = {
 };
 
 export const SelectSecret = (props: SelectPropsTypes) => {
-
+    console.log('select rendering')
     let propsTitle = props.items.find(item => item.value === props.value)
 
     let [title, setTitle] = useState<string | undefined>(propsTitle?.title)
