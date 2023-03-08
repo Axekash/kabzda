@@ -114,7 +114,6 @@ const Template2  = (props: Template1Props) => {
         }, 1000)
         return () => {
             clearInterval(timerId)
-            //window.clearInterval(timerId)
         }
     }, [])
 
